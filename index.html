@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playwrite+HR+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .logo {
+            height: 200px;
+            width: 200px;
+            border-radius: 100%;
+            box-shadow: 0 -15px 25px white;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top:-45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & img{
+                border-radius: 20px;
+            }
+            background-color: white;
+        }
+        .container {
+            text-align: center;
+            background-color: black;
+            padding: px;
+            border-radius: 10px;
+            position: relative;
+            margin-top:10%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 27px;
+            color: white;
+            font-weight: 100;
+            letter-spacing: 10px;
+            margin-top: 70px;
+        }
+        .timer {
+            font-size: 40px;
+            color: white;
+            margin:0 auto;
+            margin-top: 20px;
+            display: flex;
+        }
+        .time-box,.colon {
+            display: flex;
+            flex-direction: column;
+            padding: 1px;
+            margin: 5px;
+            background-color: black;
+            font-size: 20px;
+            font-family: "Poppins", serif;
+            font-weight: 400;
+            font-style: normal;
+
+  }
+  span{
+    font-size: 15px;
+    font-weight: 100;
+  }
+        
+        @media(width<950px)
+        {
+            .timer{
+                font-size: 30px;
+                margin-top: 15px;
+            }
+            .time-box,.colon{
+                margin: 5px;
+                font-size: 25px;
+            }
+            h1 {
+            font-size: 20px;
+            letter-spacing: 8px;
+        }
+        }
+        @media(width<750px)
+        {
+            .timer{
+                font-size: 25px;
+                margin-top: 12px;
+            }
+            .time-box,.colon{
+                margin: 3px;
+                font-size: 20px;
+            }
+            
+        }
+        @media(width<500px)
+        {
+            .timer{
+                font-size: 25px;
+                margin-top: 12px;
+            }
+            .time-box,.colon{
+                margin: 2px;
+                font-size: 20px;
+            }
+           
+        }
+        .instagram-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border: 2px solid #e4405f;
+            border-radius: 25px;
+            font-size: 18px;
+            color: #e4405f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-button img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .instagram-button:hover {
+            background: #e4405f;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="logo"><img src="slack.PNG" alt="Logo" width="150px" height="150px">
+        </div>
+        <br>
+        <h1 style="padding-top:10px;">Coming Soon</h1>
+        <div class="timer" id="timer">
+            <div class="time-box" id="days"></div>
+            <div class="colon">:</div>
+            <div class="time-box" id="hours"></div>
+            <div class="colon">:</div>
+            <div class="time-box" id="minutes"></div>
+            <div class="colon">:</div>
+            <div class="time-box" id="seconds"></div>
+        </div>
+        <br><br>
+        <a href="https://www.instagram.com" class="instagram-button" style="background-color:white;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            Check out our Instagram
+        </a>
+    </div>
+    
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Feb 15, 2025 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            // Calculate time remaining
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result
+            document.getElementById("days").innerHTML = days + " <span>Days</span>";
+            document.getElementById("hours").innerHTML = hours + " <span>Hours</span>";
+            document.getElementById("minutes").innerHTML = minutes + " <span>Minutes</span>";
+            document.getElementById("seconds").innerHTML = seconds + " <span>Seconds</span>";
+
+            // If the countdown is over
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "It's Here!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
